@@ -253,10 +253,18 @@ a {
 
 .was-validated :placeholder-shown:invalid~.empty-feedback {
   display: block;
+  font-size: 10px;
+  font-style: italic;
+  margin: 0 10px;
+  color: #3182CE;
 }
 
 .was-validated :not(:placeholder-shown):invalid~.invalid-feedback {
   display: block;
+  font-size: 10px;
+  font-style: italic;
+  margin: 0 10px;
+  color: #dc3545;
 }
 
 .is-invalid,

@@ -97,7 +97,7 @@
 
         <form action="https://api.web3forms.com/submit" method="POST" id="form" class="needs-validation" novalidate>
           <!--SETTINGS-->
-          <input type="hidden" name="access_key" value="4e0b661b-f4be-4678-9fdc-72074788fa5b" />
+          <input type="hidden" name="access_key" value="e4ff37c4-9f44-4354-b505-bc690b01acfd" />
           <input type="hidden" name="subject" value="New Submission from Web3Forms" />
           <input type="checkbox" name="botcheck" id="" style="display: none;" />
           <!--EMAIL-->
@@ -110,7 +110,7 @@
           <div class="input-group">
             <input name="name" type="text" id="name" class="input-field" placeholder="Bob Beispiel" required>
             <label for="name" class="input-label">Name</label>
-            <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
+            <div class="empty-feedback invalid-feedback">
               Please provide your Name.
             </div>
           </div>
@@ -118,7 +118,7 @@
           <!-- Setting Input -->
           <div class="input-group">
             <select name="setting" id="setting" onchange='CheckColors(this.value);' required>
-              <option value="null" disabled selected hidden></option>
+              <option value="" disabled selected hidden></option>
               <option value="Hochzeit">Wedding</option>
               <option value="office">Office</option>
               <option value="wörk">Wörk</option>
@@ -126,14 +126,20 @@
               <option value="Sonstiges">Sonstiges</option>
             </select>
             <label for="setting" class="input-label" id="setting-label">setting</label>
+             <div class="empty-feedback invalid-feedback">
+              Please provide your setting.
+            </div>
             <!-- <input type="text" name="color" id="color" placeholder="please insert Setting" style='display:none;' /> -->
           </div>
           <!--Setting Other Input-->
           <div class="input-group" id="setting-text" style='display:none;'>
             <input name="setting-text"  type="text" id="setting-text" class="input-field" placeholder="Bitte Setting eingeben ">
             <label for="setting-text" class="input-label">setting-text</label>
-            <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
+            <div class="empty-feedback">
               Please provide your setting.
+            </div>
+             <div class="invalid-feedback">
+              Please provide a valid setting.
             </div>
           </div>
 
@@ -144,10 +150,10 @@
           <div class="input-group">
             <input name="date" type="date" id="date" class="input-field" placeholder=" " required>
             <label for="date" class="input-label">Datum</label>
-            <div class="empty-feedback text-red-400 text-sm mt-1">
+            <div class="empty-feedback">
               Please provide your desired date.
             </div>
-            <div class="invalid-feedback text-red-400 text-sm mt-1">
+            <div class="invalid-feedback">
               Please provide a valid date.
             </div>
           </div>
@@ -165,10 +171,10 @@
           <div class="input-group">
             <input name="email"  type="email" id="email" class="input-field" placeholder="rainer@durchschni.tt " required>
             <label for="email" class="input-label">Email Addresse</label>
-            <div class="empty-feedback text-red-400 text-sm mt-1">
+            <div class="empty-feedback">
               Please provide your email address.
             </div>
-            <div class="invalid-feedback text-red-400 text-sm mt-1">
+            <div class="invalid-feedback">
               Please provide a valid email address.
             </div>
           </div>

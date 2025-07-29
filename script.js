@@ -71,14 +71,14 @@ function scrollToId() {
     behavior: 'smooth',
     block: 'start'
   });
-  
+
 };
 
 //KOntakt - setting
 function CheckColors(val) {
   var settingText = document.getElementById('setting-text');
   var settingLabel = document.getElementById('setting-label');
-  if (val == 'null') {
+  if (val == '') {
     settingText.style.display = 'none';
     settingLabel.style.display = 'block';
   } else if (val == 'Sonstiges') {
@@ -130,7 +130,8 @@ function CheckColors(val) {
           const setting = formData.get('setting');
           const settingText = formData.get('setting-text');
 
-          const subject = `Request for ${setting} for the ${date}`;
+          const subject = `Request for ${setting + settingText} for the ${date}`;
+
           const from_name = name;
           //EMAIL METADATA
           formData.append('from_name', from_name);
