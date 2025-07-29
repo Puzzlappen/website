@@ -8,10 +8,12 @@
   scroll-snap-align: none
 }
 
-/* .section {
-   scroll-snap-align: start;
-  height: 100vh;
-} */
+.section {
+  /* scroll-snap-align: start;
+  height: 100vh; */
+  padding: 10vh 5vw;
+  min-height: 60vh;
+}
 
 /* Only apply scroll-snap to the first section */
 .section:first-child {
@@ -23,6 +25,7 @@
   background-position: center;
   /* Centers the image */
   background-attachment: fixed;
+
   /* filter: blur(8px);
   z-index: -1; */
 }
@@ -44,8 +47,6 @@
   /* padding:10%; */
   position: relative;
   height: 80vh;
-  /* padding: 10%; */
-  padding: 10vh 5vw;
 }
 
 .logo-section {
@@ -150,18 +151,15 @@
   background-color: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(5px);
   z-index: 1000;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
-  /* --- Animation Properties (Hidden State) --- */
   opacity: 0;
   transform: translateY(100%);
-  /* Start below the viewport */
   visibility: hidden;
-  /* Hide from screen readers and interactions */
   transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+  align-content: center;
+  flex-direction: column;
 }
 
 /* --- Active state to show the menu --- */
@@ -220,6 +218,17 @@
   transition-delay: 0.7s;
 }
 
+.chapter-menu.is-active li:nth-child(5) {
+  transition-delay: 0.8s;
+}
+
+.chapter-menu.is-active li:nth-child(6) {
+  transition-delay: 0.9s;
+}
+
+a {
+  font-size: xxx-large;
+}
 
 .chapter-menu a {
   color: white;
@@ -392,7 +401,7 @@ select {
 
 /*IMPRESSUM*/
 #Impressum {
-  height: 25vh;
+  height: 25vh !important;
   background-color: #000;
   color: #efefef;
 }
