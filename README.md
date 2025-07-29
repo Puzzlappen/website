@@ -1,2 +1,1 @@
-hallo test
-check for update
+# static website

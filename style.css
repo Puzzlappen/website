@@ -1,0 +1,398 @@
+/* 1) Container*/
+#container {
+  scroll-snap-type: y mandatory;
+  overflow-y: auto;
+  height: 100vh;
+  scroll-behavior: smooth;
+
+  scroll-snap-align: none
+}
+
+/* .section {
+   scroll-snap-align: start;
+  height: 100vh;
+} */
+
+/* Only apply scroll-snap to the first section */
+.section:first-child {
+  scroll-snap-align: start;
+  background-image: url('bilder/img7.png');
+  /* Replace with your image path */
+  background-size: cover;
+  /* Ensures the image covers the entire element */
+  background-position: center;
+  /* Centers the image */
+  background-attachment: fixed;
+  /* filter: blur(8px);
+  z-index: -1; */
+}
+
+.section:nth-child(2) {
+  scroll-snap-align: start;
+}
+
+/* Subsequent sections scroll normally */
+.section:nth-child(n+3) {
+  scroll-snap-align: none !important;
+}
+
+/*FIRST SECTION*/
+.header-container {
+  /* position: relative;
+  height: 100vh; */
+  /* Full viewport height */
+  /* padding:10%; */
+  position: relative;
+  height: 80vh;
+  /* padding: 10%; */
+  padding: 10vh 5vw;
+}
+
+.logo-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  align-content: center;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  color: white;
+}
+
+.logo {
+  font-size: 8rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  text-align: center;
+  z-index: 1;
+  filter: blur(0px);
+  -webkit-text-stroke: 2px black;
+}
+
+.top-bar {
+  border-radius: 10px;
+  margin: 2vw;
+  position: fixed;
+  top: -100px;
+  left: 0;
+  width: 92vw;
+  height: 5vh;
+  background: white;
+  display: flex;
+  align-items: center;
+  padding: 10px 2vw;
+  box-shadow: 1px 5px 5px 5px rgba(0, 0, 0, 0.1);
+  transition: top 0.3s ease;
+  z-index: 1000;
+}
+
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-right: 30px;
+  color: black;
+}
+
+.top-bar ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.top-bar ul li {
+  margin: 0 15px;
+}
+
+.top-bar ul li a {
+  text-decoration: none;
+  color: black;
+}
+
+/*MENU*/
+/* burger animation */
+.menu-icon {
+  cursor: pointer;
+  width: 25%;
+  height: 25px;
+  position: fixed;
+  right: 0;
+  z-index: 1001;
+}
+
+.menu-icon rect {
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transform-origin: center;
+}
+
+.menu-icon.active rect:nth-child(1) {
+  transform: translateY(20px) rotate(45deg);
+}
+
+.menu-icon.active rect:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.menu-icon.active rect:nth-child(3) {
+  transform: translateY(-20px) rotate(-45deg);
+}
+
+/* nav menu */
+
+/* Base styles for the menu overlay (hidden by default) */
+.chapter-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(5px);
+  z-index: 1000;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* --- Animation Properties (Hidden State) --- */
+  opacity: 0;
+  transform: translateY(100%);
+  /* Start below the viewport */
+  visibility: hidden;
+  /* Hide from screen readers and interactions */
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+}
+
+/* --- Active state to show the menu --- */
+.chapter-menu.is-active {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+/* Styling for the list and items */
+.chapter-menu ul {
+  margin: 20vh 0;
+  height: 100vh;
+  display: flex;
+  list-style: none;
+  padding: 0;
+  /* margin: 0; */
+  text-align: center;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.chapter-menu li {
+  /* Staggered animation for list items (hidden by default) */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* When menu is active, animate the list items in */
+.chapter-menu.is-active li {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Staggered Delay for each item --- */
+.chapter-menu.is-active li:nth-child(1) {
+  transition-delay: 0.3s;
+}
+
+.chapter-menu.is-active li:nth-child(2) {
+  transition-delay: 0.4s;
+}
+
+.chapter-menu.is-active li:nth-child(3) {
+  transition-delay: 0.5s;
+}
+
+.chapter-menu.is-active li:nth-child(4) {
+  transition-delay: 0.6s;
+}
+
+.chapter-menu.is-active li:nth-child(5) {
+  transition-delay: 0.7s;
+}
+
+
+.chapter-menu a {
+  color: white;
+  text-decoration: none;
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  /* Responsive font size */
+  font-family: sans-serif;
+  font-weight: bold;
+  line-height: 1.7;
+  transition: color 0.3s;
+}
+
+.chapter-menu a:hover {
+  color: #a9a9a9;
+}
+
+/*CONTACT*/
+.invalid-feedback,
+.empty-feedback {
+  display: none;
+}
+
+.was-validated :placeholder-shown:invalid~.empty-feedback {
+  display: block;
+}
+
+.was-validated :not(:placeholder-shown):invalid~.invalid-feedback {
+  display: block;
+}
+
+.is-invalid,
+.was-validated :invalid {
+  border-color: #dc3545;
+}
+
+
+
+/* shows placeholder only on focus */
+input::placeholder {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+input:focus::placeholder {
+  opacity: 1;
+}
+
+/* shows which input is required */
+input:required+label::after,
+select:required+label::after,
+#setting-text+label::after {
+  content: " *";
+  color: #3182CE;
+}
+
+/* --- Form Container --- */
+.form-container {
+  background-color: #ffffff;
+  padding: 2.5rem 3rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 450px;
+  box-sizing: border-box;
+}
+
+.form-title {
+  margin-bottom: 2rem;
+  color: #1a202c;
+  font-size: 1.75rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* --- Input Group Styling (Crucial for Label Positioning) --- */
+.input-group {
+  position: relative;
+  margin-bottom: 1.75rem;
+}
+
+/* --- Input Field Styling --- */
+.input-field {
+  width: 100%;
+  border: 2px solid #d2d6dc;
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-size: 1rem;
+  color: #2d3748;
+  background-color: transparent;
+  transition: border-color 0.2s ease-in-out;
+  box-sizing: border-box;
+  /* Ensures padding doesn't affect width */
+}
+
+select {
+  width: 30%;
+  border: 4px solid #d2d6dc;
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-size: 1rem;
+  color: #2d3748;
+  background-color: transparent;
+  transition: border-color 0.2s ease-in-out;
+  box-sizing: border-box;
+}
+
+
+/* --- Label Styling (The Floating Part) --- */
+.input-label {
+  position: absolute;
+  left: 16px;
+  top: 15px;
+  color: #718096;
+  background-color: #ffffff;
+  /* Hides the input border behind it */
+  padding: 0 4px;
+  font-size: 1rem;
+  pointer-events: none;
+  /* Allows clicks to pass through to the input */
+  transition: all 0.2s ease-in-out;
+}
+
+/* --- The Magic: Floating Label Animation --- */
+/* When the input is focused or has content... */
+.input-field:focus+.input-label,
+.input-field:not(:placeholder-shown)+.input-label {
+  top: -10px;
+  /* Move the label up */
+  left: 12px;
+  font-size: 0.8rem;
+  /* Make the label smaller */
+  color: #4299e1;
+  /* Change color for emphasis */
+}
+
+/* Change border color on focus */
+.input-field:focus {
+  outline: none;
+  border-color: #4299e1;
+}
+
+/* --- Submit Button Styling --- */
+.submit-button {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #3182ce;
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+}
+
+.submit-button:hover {
+  background-color: #2b6cb0;
+}
+
+.submit-button:active {
+  transform: scale(0.98);
+}
+
+
+
+
+
+
+
+/*IMPRESSUM*/
+#Impressum {
+  height: 25vh;
+  background-color: #000;
+  color: #efefef;
+}
